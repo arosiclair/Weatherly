@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp">
+    android:layout_height="match_parent">
     
     <ImageView
         android:layout_width="144dp"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:src="@drawable/actionbarlogo"
+        android:layout_gravity="left"/>
 
 </LinearLayout>
