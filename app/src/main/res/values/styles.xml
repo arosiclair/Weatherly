@@ -7,20 +7,25 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+Bar
         <item name="android:actionBarStyle">@style/TransparentActionBar</item>
         <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowContentOverlay">@null</item>
 
         <!-- Support library compatibility -->
         <item name="actionBarStyle">@style/TransparentActionBar</item>
-    <item name="windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+
 
     </style>
 
     <!-- Transparent Action Bar Style -->
     <style name="TransparentActionBar"
-        parent="Widget.AppCompat.Light.ActionBar.Solid">
+        parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@android:color/transparent</item>
+
         <!-- Support library compatibility -->
         <item name="background">@android:color/transparent</item>
+
     </style>
 </resources>
