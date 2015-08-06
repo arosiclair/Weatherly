@@ -123,6 +123,7 @@
                         android:layout_height="28dp"
                         android:text="70°"
                         android:textSize="16sp"
+                        android:textColor="@color/abc_primary_text_material_light"
                         android:textStyle="bold"
                         android:gravity="bottom"
                         android:id="@+id/feels_like_temp" />
@@ -164,6 +165,7 @@
                         android:layout_height="28dp"
                         android:text="3 mph"
                         android:textSize="16sp"
+                        android:textColor="@color/abc_primary_text_material_light"
                         android:textStyle="bold"
                         android:gravity="bottom"
                         android:id="@+id/wind_speed" />
@@ -205,6 +207,7 @@
                         android:layout_height="28dp"
                         android:text="58%"
                         android:textSize="16sp"
+                        android:textColor="@color/abc_primary_text_material_light"
                         android:textStyle="bold"
                         android:gravity="bottom"
                         android:id="@+id/humidity" />
@@ -246,6 +249,7 @@
                         android:layout_height="28dp"
                         android:text="10 mi."
                         android:textSize="16sp"
+                        android:textColor="@color/abc_primary_text_material_light"
                         android:textStyle="bold"
                         android:gravity="bottom"
                         android:id="@+id/visibility" />
@@ -295,6 +299,7 @@
                 android:layout_height="wrap_content"
                 android:text="58° - 77°"
                 android:textSize="16sp"
+                android:textColor="@color/abc_primary_text_material_light"
                 android:textStyle="bold"
                 android:id="@+id/today_low_high"/>
         </LinearLayout>
@@ -307,20 +312,140 @@
             android:columnCount="3"
             android:rowCount="1">
 
+            <!-- Rain Forecast -->
             <LinearLayout
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"/>
+                android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
 
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="8dp"
+                        android:text="Rain?"
+                        android:textSize="8sp"
+                        android:textColor="@color/abc_secondary_text_material_light"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="Probably"
+                    android:textSize="12sp"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="70% by 3 pm"
+                    android:textSize="8sp"
+                    android:textColor="@color/abc_secondary_text_material_light"/>
+            </LinearLayout>
+
+            <!-- Wind Forecast -->
             <LinearLayout
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:orientation="vertical"/>
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="8dp"
+                        android:text="Rain?"
+                        android:textSize="8sp"
+                        android:textColor="@color/abc_secondary_text_material_light"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="Probably"
+                    android:textSize="12sp"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="70% by 3 pm"
+                    android:textSize="8sp"
+                    android:textColor="@color/abc_secondary_text_material_light"/>
+            </LinearLayout>
+
+            <!-- Humidity Forecast -->
+            <LinearLayout
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="8dp"
+                        android:text="Rain?"
+                        android:textSize="8sp"
+                        android:textColor="@color/abc_secondary_text_material_light"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="Probably"
+                    android:textSize="12sp"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="70% by 3 pm"
+                    android:textSize="8sp"
+                    android:textColor="@color/abc_secondary_text_material_light"/>
+            </LinearLayout>
         </GridLayout>
     </LinearLayout>
 
