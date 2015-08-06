@@ -89,6 +89,7 @@
             android:columnCount="2"
             android:rowCount="2">
 
+            <!-- Feels Like Detail Block -->
             <LinearLayout
                 android:layout_width="164dp"
                 android:layout_height="84dp"
@@ -99,9 +100,37 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@android:color/darker_gray"/>
+                    android:background="@android:color/darker_gray" />
+
+                <!-- Details -->
+                <LinearLayout
+                    android:layout_width="84dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:text="Feels Like"
+                        android:textSize="12sp"
+                        android:textColor="@color/abc_secondary_text_material_light"
+                        android:gravity="bottom" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:text="70°"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="bottom"
+                        android:id="@+id/feels_like_temp" />
+                </LinearLayout>
+
             </LinearLayout>
 
+            <!-- Wind Detail Block -->
             <LinearLayout
                 android:layout_width="164dp"
                 android:layout_height="84dp"
@@ -113,9 +142,36 @@
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
                     android:background="@android:color/darker_gray"/>
+
+                <!-- Details -->
+                <LinearLayout
+                    android:layout_width="84dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:text="Wind"
+                        android:textSize="12sp"
+                        android:textColor="@color/abc_secondary_text_material_light"
+                        android:gravity="bottom" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:text="3 mph"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="bottom"
+                        android:id="@+id/wind_speed" />
+                </LinearLayout>
 
             </LinearLayout>
 
+            <!-- Humidity Detail Block -->
             <LinearLayout
                 android:layout_width="164dp"
                 android:layout_height="84dp"
@@ -127,9 +183,36 @@
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
                     android:background="@android:color/darker_gray"/>
+
+                <!-- Details -->
+                <LinearLayout
+                    android:layout_width="84dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:text="Humidity"
+                        android:textSize="12sp"
+                        android:textColor="@color/abc_secondary_text_material_light"
+                        android:gravity="bottom" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:text="58%"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="bottom"
+                        android:id="@+id/humidity" />
+                </LinearLayout>
 
             </LinearLayout>
 
+            <!-- Visibility Detail Block -->
             <LinearLayout
                 android:layout_width="164dp"
                 android:layout_height="84dp"
@@ -141,6 +224,32 @@
                     android:layout_height="48dp"
                     android:layout_gravity="center_vertical"
                     android:background="@android:color/darker_gray"/>
+
+                <!-- Details -->
+                <LinearLayout
+                    android:layout_width="84dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:text="Visibility"
+                        android:textSize="12sp"
+                        android:textColor="@color/abc_secondary_text_material_light"
+                        android:gravity="bottom" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:text="10 mi."
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:gravity="bottom"
+                        android:id="@+id/visibility" />
+                </LinearLayout>
 
             </LinearLayout>
 
