@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical"
         android:paddingBottom="16dp"
         android:paddingLeft="16dp"
@@ -20,7 +19,7 @@
         <TextView
             android:id="@+id/city_name"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingBottom="16dp"
             android:paddingTop="16dp"
@@ -36,23 +35,22 @@
         <!-- Root Vertical Layout For Card -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/background_card"
             android:orientation="vertical">
 
             <!-- Current Conditions -->
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="88dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp">
+                android:padding="16dp">
 
                 <!-- Right Now Label -->
                 <TextView
-                    android:layout_width="88dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
+                    android:layout_gravity="top|left"
                     android:text="Right Now"
                     android:textColor="@color/abc_secondary_text_material_light"
                     android:textIsSelectable="false"
@@ -61,19 +59,20 @@
 
                 <!-- Current Temp and Conditions -->
                 <LinearLayout
-                    android:layout_width="120dp"
-                    android:layout_height="76dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/current_temp"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="72"
+                        android:layout_gravity="center"
+                        android:text="72°"
                         android:textColor="@color/abc_primary_text_material_light"
                         android:textIsSelectable="false"
-                        android:textSize="40sp"
+                        android:textSize="52sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -84,23 +83,23 @@
                         android:text="Clear"
                         android:textColor="@color/abc_secondary_text_material_light"
                         android:textIsSelectable="false"
-                        android:textSize="12sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
-            </LinearLayout>
+            </FrameLayout>
 
             <!-- Grid Layout Containing Forecast Details -->
             <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
                 android:columnCount="2"
+                android:gravity="center"
                 android:rowCount="2">
 
                 <!-- Feels Like Detail Block -->
                 <LinearLayout
-                    android:layout_width="164dp"
-                    android:layout_height="84dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp">
 
@@ -112,28 +111,28 @@
 
                     <!-- Details -->
                     <LinearLayout
-                        android:layout_width="84dp"
-                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical"
-                        android:paddingLeft="16dp">
+                        android:paddingLeft="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp"
                             android:text="Feels Like"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/feels_like_temp"
                             android:layout_width="wrap_content"
-                            android:layout_height="28dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="4dp"
                             android:text="70°"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="16sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -141,8 +140,8 @@
 
                 <!-- Wind Detail Block -->
                 <LinearLayout
-                    android:layout_width="164dp"
-                    android:layout_height="84dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp">
 
@@ -154,28 +153,28 @@
 
                     <!-- Details -->
                     <LinearLayout
-                        android:layout_width="84dp"
-                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical"
-                        android:paddingLeft="16dp">
+                        android:paddingLeft="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp"
                             android:text="Wind"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/wind_speed"
                             android:layout_width="wrap_content"
-                            android:layout_height="28dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="4dp"
                             android:text="3 mph"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="16sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -183,8 +182,8 @@
 
                 <!-- Humidity Detail Block -->
                 <LinearLayout
-                    android:layout_width="164dp"
-                    android:layout_height="84dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp">
 
@@ -196,28 +195,28 @@
 
                     <!-- Details -->
                     <LinearLayout
-                        android:layout_width="84dp"
-                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical"
-                        android:paddingLeft="16dp">
+                        android:paddingLeft="8dp">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp"
                             android:text="Humidity"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/humidity"
                             android:layout_width="wrap_content"
-                            android:layout_height="28dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="4dp"
                             android:text="58%"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="16sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -225,8 +224,8 @@
 
                 <!-- Visibility Detail Block -->
                 <LinearLayout
-                    android:layout_width="164dp"
-                    android:layout_height="84dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="16dp">
 
@@ -238,28 +237,28 @@
 
                     <!-- Details -->
                     <LinearLayout
-                        android:layout_width="84dp"
-                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical"
                         android:paddingLeft="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="4dp"
                             android:text="Visibility"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="12sp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/visibility"
                             android:layout_width="wrap_content"
-                            android:layout_height="28dp"
-                            android:gravity="bottom"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="4dp"
                             android:text="10 mi."
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="16sp"
+                            android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
