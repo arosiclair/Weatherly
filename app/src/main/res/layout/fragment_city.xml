@@ -34,8 +34,9 @@
 
         <!-- Root Vertical Layout For Card -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/background_card"
             android:orientation="vertical">
 
@@ -90,10 +91,10 @@
 
             <!-- Grid Layout Containing Forecast Details -->
             <GridLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
-                android:gravity="center"
+                android:layout_gravity="center"
                 android:rowCount="2">
 
                 <!-- Feels Like Detail Block -->
@@ -275,8 +276,9 @@
 
         <!-- The Today Card -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/background_card"
             android:orientation="vertical"
             android:padding="16dp">
