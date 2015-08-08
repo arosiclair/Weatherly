@@ -349,6 +349,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/today_rain_answer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
@@ -358,6 +359,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/today_rain_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
@@ -389,25 +391,27 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:paddingLeft="8dp"
-                            android:text="Rain?"
+                            android:text="Wind?"
                             android:textColor="@color/abc_secondary_text_material_light"
                             android:textSize="8sp" />
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/today_wind_answer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
-                        android:text="Probably"
+                        android:text="Gentle"
                         android:textColor="@color/abc_primary_text_material_light"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/today_wind_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
-                        android:text="70% by 3 pm"
+                        android:text="3 - 5 mph"
                         android:textColor="@color/abc_secondary_text_material_light"
                         android:textSize="8sp" />
                 </LinearLayout>
@@ -435,25 +439,27 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:paddingLeft="8dp"
-                            android:text="Rain?"
+                            android:text="Hunmidity?"
                             android:textColor="@color/abc_secondary_text_material_light"
                             android:textSize="8sp" />
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/today_humidity_answer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
-                        android:text="Probably"
+                        android:text="Moist"
                         android:textColor="@color/abc_primary_text_material_light"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/today_humidity_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="4dp"
-                        android:text="70% by 3 pm"
+                        android:text="50 - 80%"
                         android:textColor="@color/abc_secondary_text_material_light"
                         android:textSize="8sp" />
                 </LinearLayout>
