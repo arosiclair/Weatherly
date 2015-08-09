@@ -295,7 +295,7 @@
                     android:layout_gravity="top|left"
                     android:text="Today"
                     android:textColor="@color/abc_secondary_text_material_light"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -305,7 +305,7 @@
                     android:layout_gravity="top|right"
                     android:text="58° - 77°"
                     android:textColor="@color/abc_primary_text_material_light"
-                    android:textSize="16sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </FrameLayout>
 
@@ -342,7 +342,7 @@
                             android:paddingLeft="8dp"
                             android:text="Rain?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="8sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <TextView
@@ -352,7 +352,7 @@
                         android:paddingTop="4dp"
                         android:text="Probably"
                         android:textColor="@color/abc_primary_text_material_light"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -362,7 +362,7 @@
                         android:paddingTop="4dp"
                         android:text="70% by 3 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="8sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <!-- Wind Forecast -->
@@ -390,7 +390,7 @@
                             android:paddingLeft="8dp"
                             android:text="Wind?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="8sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <TextView
@@ -400,7 +400,7 @@
                         android:paddingTop="4dp"
                         android:text="Gentle"
                         android:textColor="@color/abc_primary_text_material_light"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -410,7 +410,7 @@
                         android:paddingTop="4dp"
                         android:text="3 - 5 mph"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="8sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <!-- Humidity Forecast -->
@@ -436,9 +436,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:paddingLeft="8dp"
-                            android:text="Hunmidity?"
+                            android:text="Humidity?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="8sp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
 
                     <TextView
@@ -448,7 +448,7 @@
                         android:paddingTop="4dp"
                         android:text="Moist"
                         android:textColor="@color/abc_primary_text_material_light"
-                        android:textSize="12sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -458,7 +458,7 @@
                         android:paddingTop="4dp"
                         android:text="50 - 80%"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="8sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
