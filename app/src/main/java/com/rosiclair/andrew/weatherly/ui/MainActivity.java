@@ -147,6 +147,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static class ThisWeekDayFragment extends Fragment{
+
+        public ThisWeekDayFragment(){
+
+        }
+
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+
+            View rootView = inflater.inflate(R.layout.fragment_this_week_day, container, false);
+            return rootView;
+        }
+
+    }
+
     /**
      * Changes the ActionBar layout to the custom_action_bar layout with the custom logo.
      */
