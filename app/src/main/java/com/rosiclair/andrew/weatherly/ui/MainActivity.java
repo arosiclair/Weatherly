@@ -2,6 +2,7 @@ package com.rosiclair.andrew.weatherly.ui;
 
 import java.util.Locale;
 
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.rosiclair.andrew.weatherly.R;
 
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        initActionBarTitle();
+        //initActionBarTitle();
 
     }
 
@@ -143,7 +145,17 @@ public class MainActivity extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_city , container, false);
+
+            //Set Lobster typeface for the City Name
+            setCityNameFont(rootView);
             return rootView;
+        }
+
+        private void setCityNameFont(View fragmentView) {
+
+            TextView cityName = (TextView) fragmentView.findViewById(R.id.city_name);
+            Typeface lobster = Typeface.createFromAsset(getActivity().getAssets(), "lobster.otf");
+            cityName.setTypeface(lobster);
         }
     }
 
