@@ -1,9 +1,11 @@
 package com.rosiclair.andrew.weatherly.ui;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.rosiclair.andrew.weatherly.R;
 
@@ -13,6 +15,9 @@ public class DayDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_details);
+
+        //Set Lobster typeface for the City Name
+        setDayNameFont();
     }
 
     @Override
@@ -35,5 +40,12 @@ public class DayDetails extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //Changes the font of the Day title
+    private void setDayNameFont(){
+        TextView dayTitle = (TextView) findViewById(R.id.day_name);
+        Typeface lobster = Typeface.createFromAsset(getAssets(), "lobster.otf");
+        dayTitle.setTypeface(lobster);
     }
 }
