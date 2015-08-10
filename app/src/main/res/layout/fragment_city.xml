@@ -365,7 +365,8 @@
                         android:paddingTop="4dp"
                         android:text="70% by 3 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <!-- Wind Forecast -->
@@ -413,7 +414,8 @@
                         android:paddingTop="4dp"
                         android:text="3 - 5 mph"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <!-- Humidity Forecast -->
@@ -461,7 +463,8 @@
                         android:paddingTop="4dp"
                         android:text="50 - 80%"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
