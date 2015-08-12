@@ -1,7 +1,9 @@
 package com.rosiclair.andrew.weatherly.ui;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,7 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.rosiclair.andrew.weatherly.R;
+import com.rosiclair.andrew.weatherly.data.WeatherlyCity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
      */
     ViewPager mViewPager;
 
+    //The collection of WeatherlyCities that will be used to update the views
+    ArrayList<WeatherlyCity> cities;
+
+    GoogleApiClient mGoogleApiClient;
+    PlayServicesEventHandler mPlayServicesEventHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +61,22 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //initActionBarTitle();
+        //Build the GoogleAPIClient and initialize its event handler
+        buildGoogleApiClient();
 
+
+    }
+
+    @Override
+    protected  void onStart(){
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop(){
+        mGoogleApiClient.disconnect();
+        super.onStop();
     }
 
 
@@ -173,6 +198,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void update(){
+
+    }
+
     /**
      * Changes the ActionBar layout to the custom_action_bar layout with the custom logo.
      */
@@ -186,6 +215,30 @@ public class MainActivity extends AppCompatActivity {
         View v = inflater.inflate(R.layout.custom_action_bar, null);
 
         this.getSupportActionBar().setCustomView(v);
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+
+        mPlayServicesEventHandler = new PlayServicesEventHandler(this, mGoogleApiClient);
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(mPlayServicesEventHandler)
+                .addOnConnectionFailedListener(mPlayServicesEventHandler)
+                .addApi(LocationServices.API)
+                .build();
+    }
+
+    //Pass this callback to the event handler
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        mPlayServicesEventHandler.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //Preserve the error resolution status
+        outState.putBoolean(PlayServicesEventHandler.STATE_RESOLVING_ERROR, mPlayServicesEventHandler.mResolvingError);
     }
 
 }
