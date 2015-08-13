@@ -1,4 +1,4 @@
-package com.rosiclair.andrew.weatherly.ui;
+package com.rosiclair.andrew.weatherly.control;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 
 /**
  * An event handler for the GoogleApiClient.
@@ -22,6 +24,9 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     private GoogleApiClient mGoogleApiClient;
     //The activity associated with the GoogleApiClient
     private AppCompatActivity mActivity;
+
+    private Location mLastLocation;
+    private String mLatitude, mLongitude;
 
     // Request code to use when launching the resolution activity
     private static final int REQUEST_RESOLVE_ERROR = 1001;
@@ -40,6 +45,8 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     public void onConnected(Bundle connectionHint) {
         // Connected to Google Play services!
         // The good stuff goes here.
+
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
     }
 
     @Override
