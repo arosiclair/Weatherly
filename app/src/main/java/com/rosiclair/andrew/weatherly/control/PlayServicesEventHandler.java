@@ -49,7 +49,12 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
         // Connected to Google Play services!
         // The good stuff goes here.
 
+        //Request last known location
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
+        //Pass the location to the WeatherlyEventHandler if successful
+        if(mLastLocation != null)
+            mWeatherlyEventHandler.onLocationUpdate(mLastLocation);
     }
 
     @Override
