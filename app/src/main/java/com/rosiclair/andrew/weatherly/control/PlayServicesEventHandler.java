@@ -28,6 +28,8 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     private Location mLastLocation;
     private String mLatitude, mLongitude;
 
+    private WeatherlyEventHandler mWeatherlyEventHandler;
+
     // Request code to use when launching the resolution activity
     private static final int REQUEST_RESOLVE_ERROR = 1001;
     // Unique tag for the error dialog fragment
@@ -36,9 +38,10 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     public boolean mResolvingError = false;
     public static final String STATE_RESOLVING_ERROR = "resolving_error";
 
-    public PlayServicesEventHandler(AppCompatActivity activity, GoogleApiClient googleApiClient){
+    public PlayServicesEventHandler(AppCompatActivity activity, GoogleApiClient googleApiClient, WeatherlyEventHandler eventHandler){
         mActivity = activity;
         mGoogleApiClient = googleApiClient;
+        mWeatherlyEventHandler = eventHandler;
     }
 
     @Override
