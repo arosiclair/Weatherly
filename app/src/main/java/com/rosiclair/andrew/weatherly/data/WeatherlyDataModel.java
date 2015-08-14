@@ -14,7 +14,8 @@ public class WeatherlyDataModel {
     private ArrayList<WeatherlyCity> cities;
 
     public WeatherlyDataModel(){
-
+        currentLocation = new WeatherlyCity();
+        cities = new ArrayList<>();
     }
 
     public WeatherlyCity getCurrentLocation() {
