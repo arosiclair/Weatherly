@@ -16,6 +16,12 @@ public class WeatherlyCity {
     private WeatherlyDayForecast todaysForecast;
     private ArrayList<WeatherlyDayForecast> weeksForecast;
 
+    public WeatherlyCity(){}
+
+    public void update(){
+
+    }
+
     public String getName() {
         return name;
     }
@@ -40,7 +46,75 @@ public class WeatherlyCity {
         return visibility;
     }
 
-    public void update(){
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setCityID(int cityID) {
+        this.cityID = cityID;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getUnits() {
+        return units;
+    }
+
+    public void setUnits(String units) {
+        this.units = units;
+    }
+
+    public void setCurrentTemp(int currentTemp) {
+        this.currentTemp = currentTemp;
+    }
+
+    public void setFeelsLike(int feelsLike) {
+        this.feelsLike = feelsLike;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
+
+    public void setVisibility(int visibility) {
+        this.visibility = visibility;
+    }
+
+    public int getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(int lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public WeatherlyDayForecast getTodaysForecast() {
+        return todaysForecast;
+    }
+
+    public void setTodaysForecast(WeatherlyDayForecast todaysForecast) {
+        this.todaysForecast = todaysForecast;
+    }
+
+    public ArrayList<WeatherlyDayForecast> getWeeksForecast() {
+        return weeksForecast;
+    }
+
+    public void setWeeksForecast(ArrayList<WeatherlyDayForecast> weeksForecast) {
+        this.weeksForecast = weeksForecast;
     }
 }
