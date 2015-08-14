@@ -11,8 +11,8 @@ public class WeatherlyCity {
     private int cityID;
     private double latitude, longitude;
     private String units;
-    private int currentTemp, feelsLike, humidity, visibility;
-    private int lastUpdateTime;
+    private int currentTemp, feelsLike, wind, humidity, visibility;
+    private long lastUpdateTime;
     private WeatherlyDayForecast todaysForecast;
     private ArrayList<WeatherlyDayForecast> weeksForecast;
 
@@ -34,17 +34,15 @@ public class WeatherlyCity {
         return currentTemp;
     }
 
-    public int getFeelsLike(){
-        return feelsLike;
-    }
+    public int getFeelsLike(){ return feelsLike; }
+
+    public int getWind() { return wind; }
 
     public int getHumidity() {
         return humidity;
     }
 
-    public int getVisibility() {
-        return visibility;
-    }
+    public int getVisibility() { return visibility; }
 
     public void setName(String name) {
         this.name = name;
@@ -86,6 +84,10 @@ public class WeatherlyCity {
         this.feelsLike = feelsLike;
     }
 
+    public void setWind(int wind) {
+        this.wind = wind;
+    }
+
     public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
@@ -94,11 +96,11 @@ public class WeatherlyCity {
         this.visibility = visibility;
     }
 
-    public int getLastUpdateTime() {
+    public long getLastUpdateTime() {
         return lastUpdateTime;
     }
 
-    public void setLastUpdateTime(int lastUpdateTime) {
+    public void setLastUpdateTime(long lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
     }
 
