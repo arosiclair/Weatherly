@@ -21,7 +21,10 @@ import android.widget.TextView;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.rosiclair.andrew.weatherly.R;
+import com.rosiclair.andrew.weatherly.control.PlayServicesEventHandler;
+import com.rosiclair.andrew.weatherly.control.WeatherlyEventHandler;
 import com.rosiclair.andrew.weatherly.data.WeatherlyCity;
+import com.rosiclair.andrew.weatherly.data.WeatherlyDataModel;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -41,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
      */
     ViewPager mViewPager;
 
-    //The collection of WeatherlyCities that will be used to update the views
-    ArrayList<WeatherlyCity> cities;
+    private GoogleApiClient mGoogleApiClient;
 
-    GoogleApiClient mGoogleApiClient;
-    PlayServicesEventHandler mPlayServicesEventHandler;
+    private WeatherlyDataModel mDataModel;
+    private WeatherlyEventHandler mEventHandler;
+    private PlayServicesEventHandler mPlayServicesEventHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,20 +64,23 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        mDataModel = new WeatherlyDataModel();
+        mEventHandler = new WeatherlyEventHandler(this, mDataModel);
+
         //Build the GoogleAPIClient and initialize its event handler
         buildGoogleApiClient();
-
-
+        //Build the Weatherlib client
+        mEventHandler.buildWeatherClient();
     }
 
     @Override
-    protected  void onStart(){
+    protected void onStart() {
         super.onStart();
         mGoogleApiClient.connect();
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         mGoogleApiClient.disconnect();
         super.onStop();
     }
@@ -169,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_city , container, false);
+            View rootView = inflater.inflate(R.layout.fragment_city, container, false);
 
             //Set Lobster typeface for the City Name
             setCityNameFont(rootView);
@@ -184,13 +190,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static class ThisWeekDayFragment extends Fragment{
+    public static class ThisWeekDayFragment extends Fragment {
 
         public ThisWeekDayFragment(){
 
         }
 
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
             View rootView = inflater.inflate(R.layout.fragment_this_week_day, container, false);
             return rootView;
@@ -209,8 +215,6 @@ public class MainActivity extends AppCompatActivity {
         this.getSupportActionBar().setDisplayShowCustomEnabled(true);
         this.getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
-
         LayoutInflater inflater = LayoutInflater.from(this);
         View v = inflater.inflate(R.layout.custom_action_bar, null);
 
@@ -219,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected synchronized void buildGoogleApiClient() {
 
-        mPlayServicesEventHandler = new PlayServicesEventHandler(this, mGoogleApiClient);
+        mPlayServicesEventHandler = new PlayServicesEventHandler(this, mGoogleApiClient, mEventHandler);
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(mPlayServicesEventHandler)
                 .addOnConnectionFailedListener(mPlayServicesEventHandler)
