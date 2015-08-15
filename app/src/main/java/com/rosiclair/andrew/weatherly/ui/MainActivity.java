@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     ViewPager mViewPager;
 
     private GoogleApiClient mGoogleApiClient;
-
     private WeatherlyDataModel mDataModel;
     private WeatherlyEventHandler mEventHandler;
     private PlayServicesEventHandler mPlayServicesEventHandler;
@@ -67,10 +66,13 @@ public class MainActivity extends AppCompatActivity {
         mDataModel = new WeatherlyDataModel();
         mEventHandler = new WeatherlyEventHandler(this, mDataModel);
 
-        //Build the GoogleAPIClient and initialize its event handler
-        buildGoogleApiClient();
         //Build the Weatherlib client
         mEventHandler.buildWeatherClient();
+
+        mPlayServicesEventHandler = new PlayServicesEventHandler(this, mEventHandler);
+        //Build the GoogleAPIClient and initialize its event handler
+        buildGoogleApiClient();
+
     }
 
     @Override
@@ -223,7 +225,6 @@ public class MainActivity extends AppCompatActivity {
 
     protected synchronized void buildGoogleApiClient() {
 
-        mPlayServicesEventHandler = new PlayServicesEventHandler(this, mGoogleApiClient, mEventHandler);
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(mPlayServicesEventHandler)
                 .addOnConnectionFailedListener(mPlayServicesEventHandler)
@@ -244,5 +245,22 @@ public class MainActivity extends AppCompatActivity {
         //Preserve the error resolution status
         outState.putBoolean(PlayServicesEventHandler.STATE_RESOLVING_ERROR, mPlayServicesEventHandler.mResolvingError);
     }
+
+    public GoogleApiClient getGoogleApiClient() {
+        return mGoogleApiClient;
+    }
+
+    public WeatherlyDataModel getDataModel() {
+        return mDataModel;
+    }
+
+    public WeatherlyEventHandler getEventHandler() {
+        return mEventHandler;
+    }
+
+    public PlayServicesEventHandler getPlayServicesEventHandler() {
+        return mPlayServicesEventHandler;
+    }
+
 
 }
