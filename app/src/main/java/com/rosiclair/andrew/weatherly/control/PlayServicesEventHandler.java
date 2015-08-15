@@ -15,6 +15,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
+import com.rosiclair.andrew.weatherly.ui.MainActivity;
 
 /**
  * An event handler for the GoogleApiClient.
@@ -23,7 +24,7 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
 
     private GoogleApiClient mGoogleApiClient;
     //The activity associated with the GoogleApiClient
-    private AppCompatActivity mActivity;
+    private MainActivity mActivity;
 
     private Location mLastLocation;
     private String mLatitude, mLongitude;
@@ -38,9 +39,8 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     public boolean mResolvingError = false;
     public static final String STATE_RESOLVING_ERROR = "resolving_error";
 
-    public PlayServicesEventHandler(AppCompatActivity activity, GoogleApiClient googleApiClient, WeatherlyEventHandler eventHandler){
+    public PlayServicesEventHandler(MainActivity activity, WeatherlyEventHandler eventHandler){
         mActivity = activity;
-        mGoogleApiClient = googleApiClient;
         mWeatherlyEventHandler = eventHandler;
     }
 
@@ -48,6 +48,9 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     public void onConnected(Bundle connectionHint) {
         // Connected to Google Play services!
         // The good stuff goes here.
+
+        //Get the newly built API client from the Main Activity
+        mGoogleApiClient = mActivity.getGoogleApiClient();
 
         //Request last known location
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
