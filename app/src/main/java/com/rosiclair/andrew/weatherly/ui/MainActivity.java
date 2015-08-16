@@ -66,9 +66,6 @@ public class MainActivity extends AppCompatActivity {
         mDataModel = new WeatherlyDataModel();
         mEventHandler = new WeatherlyEventHandler(this, mDataModel);
 
-        //Build the Weatherlib client
-        mEventHandler.buildWeatherClient();
-
         mPlayServicesEventHandler = new PlayServicesEventHandler(this, mEventHandler);
         //Build the GoogleAPIClient and initialize its event handler
         buildGoogleApiClient();
