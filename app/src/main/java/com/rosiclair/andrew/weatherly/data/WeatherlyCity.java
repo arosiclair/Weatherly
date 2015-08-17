@@ -18,7 +18,10 @@ public class WeatherlyCity {
     private WeatherlyDayForecast todaysForecast;
     private ArrayList<WeatherlyDayForecast> weeksForecast;
 
-    public WeatherlyCity(){}
+    public WeatherlyCity(){
+        todaysForecast = new WeatherlyDayForecast();
+        weeksForecast = new ArrayList<>();
+    }
 
     public void update(){
 
