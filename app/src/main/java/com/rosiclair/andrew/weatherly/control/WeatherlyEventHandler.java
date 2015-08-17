@@ -54,9 +54,9 @@ public class WeatherlyEventHandler {
         currentLocation.setHumidity((int) (currently.get().humidity() * 100));
         currentLocation.setVisibility((int) (currently.get().visibility() + 0.5));
 
-        //TODO Retrieve today's forecast
+        //Retrieve today's forecast
         FIODaily today = new FIODaily(mFIO);
-        int num = today.days();
+        todaysForecast.setCondition(today.getDay(0).summary());
         todaysForecast.setLowTemp((int) (today.getDay(0).temperatureMin() + 0.5));
         todaysForecast.setHighTemp((int) (today.getDay(0).temperatureMax() + 0.5));
         findPrecipChances(mFIO, todaysForecast);
@@ -67,7 +67,6 @@ public class WeatherlyEventHandler {
     private void findPrecipChances(ForecastIO FIO, WeatherlyDayForecast day){
         //Extract hourly forecast data
         FIOHourly hourlyForecast = new FIOHourly(FIO);
-        int numHours = hourlyForecast.hours();
 
         //Determine the number of hours left in the day
         Calendar rightNow = Calendar.getInstance();
@@ -96,7 +95,6 @@ public class WeatherlyEventHandler {
     private void findWindSpeeds(ForecastIO FIO, WeatherlyDayForecast day){
         //Extract hourly forecast data
         FIOHourly hourlyForecast = new FIOHourly(FIO);
-        int numHours = hourlyForecast.hours();
 
         //Determine the number of hours left in the day
         Calendar rightNow = Calendar.getInstance();
