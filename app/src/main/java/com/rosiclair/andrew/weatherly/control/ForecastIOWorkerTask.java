@@ -9,10 +9,12 @@ import com.github.dvdme.ForecastIOLib.ForecastIO;
  */
 public class ForecastIOWorkerTask extends AsyncTask {
 
+    WeatherlyEventHandler mEventHandler;
     ForecastIO mFIO;
     double mLatitude, mLongitude;
 
-    public ForecastIOWorkerTask(ForecastIO FIO, double latitude, double longitude){
+    public ForecastIOWorkerTask(WeatherlyEventHandler eventHandler, ForecastIO FIO, double latitude, double longitude){
+        mEventHandler = eventHandler;
         mFIO = FIO;
         mLatitude = latitude;
         mLongitude = longitude;
@@ -22,5 +24,10 @@ public class ForecastIOWorkerTask extends AsyncTask {
     protected ForecastIO doInBackground(Object[] params) {
         mFIO.getForecast("" + mLatitude, "" + mLongitude);
         return mFIO;
+    }
+
+    @Override
+    protected void onPostExecute(Object o) {
+        mEventHandler.onFIODataRetrieve();
     }
 }

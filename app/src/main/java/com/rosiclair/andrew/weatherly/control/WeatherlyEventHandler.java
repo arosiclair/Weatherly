@@ -29,29 +29,43 @@ public class WeatherlyEventHandler {
         mDataModel = dataModel;
     }
 
-    public void onLocationUpdate(Location lastKnown) {
-        WeatherlyCity currentLocation = mDataModel.getCurrentLocation();
-        WeatherlyDayForecast todaysForecast = currentLocation.getTodaysForecast();
-
+    public void onLocationUpdate(Location lastKnown){
         double latitude = lastKnown.getLatitude();
         double longitude = lastKnown.getLongitude();
         ForecastIOWorkerTask fioTask;
 
-        //Initialize a new ForecastIO for each new forecast
+        //Initialize a new ForecastIO object and retrieve the forecast data
         mFIO = new ForecastIO("147011b1efd5b4f5db2beafa790a82b6");
         mFIO.setUnits(ForecastIO.UNITS_US);
         mFIO.setExcludeURL("minutely");
-        fioTask = new ForecastIOWorkerTask(mFIO, latitude, longitude);
-        fioTask.execute();
+        new ForecastIOWorkerTask(this, mFIO, latitude, longitude).execute(mFIO, latitude, longitude);
+    }
+
+    public void onFIODataRetrieve(){
+        WeatherlyCity currentLocation = mDataModel.getCurrentLocation();
+        WeatherlyDayForecast todaysForecast = currentLocation.getTodaysForecast();
 
         //Retrieve current conditions
         FIOCurrently currently = new FIOCurrently(mFIO);
+        currentLocation.setCurrentCondition(currently.get().summary());
         currentLocation.setCurrentTemp((int) (currently.get().temperature() + 0.5));
         currentLocation.setFeelsLike((int) (currently.get().apparentTemperature() + 0.5));
         currentLocation.setWind((int) (currently.get().windSpeed() + 0.5));
-        currentLocation.setHumidity((int) (currently.get().humidity() * 10));
+        currentLocation.setHumidity((int) (currently.get().humidity() * 100));
         currentLocation.setVisibility((int) (currently.get().visibility() + 0.5));
 
         //TODO Retrieve today's forecast
+        FIODaily today = new FIODaily(mFIO);
+        int num = today.days();
+        todaysForecast.setLowTemp((int) (today.getDay(0).temperatureMin() + 0.5));
+        todaysForecast.setHighTemp((int) (today.getDay(0).temperatureMax() + 0.5));
+        findPrecipChances(mFIO, todaysForecast);
+    }
+
+    private void findPrecipChances(ForecastIO FIO, WeatherlyDayForecast day){
+        int numHours;
+
+        FIOHourly hourlyForecast = new FIOHourly(FIO);
+        numHours = hourlyForecast.hours();
     }
 }
