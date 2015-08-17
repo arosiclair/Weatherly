@@ -4,6 +4,8 @@ import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.dvdme.ForecastIOLib.FIOCurrently;
+import com.github.dvdme.ForecastIOLib.FIODaily;
+import com.github.dvdme.ForecastIOLib.FIOHourly;
 import com.github.dvdme.ForecastIOLib.ForecastIO;
 import com.rosiclair.andrew.weatherly.data.WeatherlyCity;
 import com.rosiclair.andrew.weatherly.data.WeatherlyDataModel;
@@ -27,18 +29,20 @@ public class WeatherlyEventHandler {
         mDataModel = dataModel;
     }
 
-    public void onLocationUpdate(Location lastKnown){
+    public void onLocationUpdate(Location lastKnown) {
         WeatherlyCity currentLocation = mDataModel.getCurrentLocation();
         WeatherlyDayForecast todaysForecast = currentLocation.getTodaysForecast();
 
         double latitude = lastKnown.getLatitude();
         double longitude = lastKnown.getLongitude();
+        ForecastIOWorkerTask fioTask;
 
         //Initialize a new ForecastIO for each new forecast
         mFIO = new ForecastIO("147011b1efd5b4f5db2beafa790a82b6");
         mFIO.setUnits(ForecastIO.UNITS_US);
         mFIO.setExcludeURL("minutely");
-        mFIO.getForecast("" + latitude, "" + longitude);
+        fioTask = new ForecastIOWorkerTask(mFIO, latitude, longitude);
+        fioTask.execute();
 
         //Retrieve current conditions
         FIOCurrently currently = new FIOCurrently(mFIO);
