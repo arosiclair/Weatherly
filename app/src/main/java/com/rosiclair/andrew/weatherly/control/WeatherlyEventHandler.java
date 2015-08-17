@@ -49,7 +49,7 @@ public class WeatherlyEventHandler {
         currentLocation.setCurrentTemp((int) (currently.get().temperature() + 0.5));
         currentLocation.setFeelsLike((int) (currently.get().apparentTemperature() + 0.5));
         currentLocation.setWind((int) (currently.get().windSpeed() + 0.5));
-        currentLocation.setHumidity((int) (currently.get().humidity() + 0.5));
+        currentLocation.setHumidity((int) (currently.get().humidity() * 10));
         currentLocation.setVisibility((int) (currently.get().visibility() + 0.5));
 
         //TODO Retrieve today's forecast
