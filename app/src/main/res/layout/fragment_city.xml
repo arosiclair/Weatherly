@@ -41,7 +41,7 @@
             android:orientation="vertical">
 
             <!-- Current Conditions -->
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -62,35 +62,41 @@
                     android:textStyle="bold" />
 
                 <!-- Current Temp and Conditions -->
-                <LinearLayout
+
+                <TextView
+                    android:id="@+id/current_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:layout_centerHorizontal="true"
+                    android:text="72"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:textIsSelectable="false"
+                    android:textSize="56sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/current_temp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="72°"
-                        android:textColor="@color/abc_primary_text_material_light"
-                        android:textIsSelectable="false"
-                        android:textSize="56sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/current_temp"
+                    android:text="°"
+                    android:textColor="@color/abc_primary_text_material_light"
+                    android:textIsSelectable="false"
+                    android:textSize="56sp"
+                    android:textStyle="bold"/>
 
-                    <TextView
-                        android:id="@+id/current_conditions"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Clear"
-                        android:textColor="@color/abc_secondary_text_material_light"
-                        android:textIsSelectable="false"
-                        android:textSize="16sp" />
-                </LinearLayout>
 
-            </FrameLayout>
+                <TextView
+                    android:id="@+id/current_conditions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/current_temp"
+                    android:layout_centerHorizontal="true"
+                    android:text="Clear"
+                    android:textColor="@color/abc_secondary_text_material_light"
+                    android:textIsSelectable="false"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
 
             <!-- Grid Layout Containing Forecast Details -->
             <GridLayout
