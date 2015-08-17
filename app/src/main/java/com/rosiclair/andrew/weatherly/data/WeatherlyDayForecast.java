@@ -8,117 +8,117 @@ import java.util.ArrayList;
 public class WeatherlyDayForecast {
 
     //The day's weather details.
-    private int lowTemp;
-    private int highTemp;
-    private int minChanceOfPrecip;
-    private int maxChanceOfPrecip;
-    private int maxChanceTime;
-    private int windMin;
-    private int windMax;
-    private int windMaxTime;
-    private int humMin;
-    private int humMax;
-    private int humMaxTime;
-    private String condition;
+    private int mLowTemp;
+    private int mHighTemp;
+    private int mMinChanceOfPrecip;
+    private int mMaxChanceOfPrecip;
+    private int mMaxChanceTime;
+    private int mWindMin;
+    private int mWindMax;
+    private int mWindMaxTime;
+    private int mHumMin;
+    private int mHumMax;
+    private int mHumMaxTime;
+    private String mCondition;
 
     // The list of hourly forecasts for the day.
     private ArrayList<WeatherlyHourForecast> hourlyForecasts;
 
     //Accessors
     public int getLowTemp() {
-        return lowTemp;
+        return mLowTemp;
     }
 
     public void setLowTemp(int lowTemp) {
-        this.lowTemp = lowTemp;
+        this.mLowTemp = lowTemp;
     }
 
     public int getHighTemp() {
-        return highTemp;
+        return mHighTemp;
     }
 
     public void setHighTemp(int highTemp) {
-        this.highTemp = highTemp;
+        this.mHighTemp = highTemp;
     }
 
     public int getMinChanceOfPrecip() {
-        return minChanceOfPrecip;
+        return mMinChanceOfPrecip;
     }
 
     public void setMinChanceOfPrecip(int minChanceOfPrecip) {
-        this.minChanceOfPrecip = minChanceOfPrecip;
+        this.mMinChanceOfPrecip = minChanceOfPrecip;
     }
 
     public int getMaxChanceOfPrecip() {
-        return maxChanceOfPrecip;
+        return mMaxChanceOfPrecip;
     }
 
     public void setMaxChanceOfPrecip(int maxChanceOfPrecip) {
-        this.maxChanceOfPrecip = maxChanceOfPrecip;
+        this.mMaxChanceOfPrecip = maxChanceOfPrecip;
     }
 
     public int getMaxChanceTime() {
-        return maxChanceTime;
+        return mMaxChanceTime;
     }
 
     public void setMaxChanceTime(int maxChanceTime) {
-        this.maxChanceTime = maxChanceTime;
+        this.mMaxChanceTime = maxChanceTime;
     }
 
     public int getWindMin() {
-        return windMin;
+        return mWindMin;
     }
 
     public void setWindMin(int windMin) {
-        this.windMin = windMin;
+        this.mWindMin = windMin;
     }
 
     public int getWindMax() {
-        return windMax;
+        return mWindMax;
     }
 
     public void setWindMax(int windMax) {
-        this.windMax = windMax;
+        this.mWindMax = windMax;
     }
 
     public int getWindMaxTime() {
-        return windMaxTime;
+        return mWindMaxTime;
     }
 
     public void setWindMaxTime(int windMaxTime) {
-        this.windMaxTime = windMaxTime;
+        this.mWindMaxTime = windMaxTime;
     }
 
     public int getHumMin() {
-        return humMin;
+        return mHumMin;
     }
 
     public void setHumMin(int humMin) {
-        this.humMin = humMin;
+        this.mHumMin = humMin;
     }
 
     public int getHumMax() {
-        return humMax;
+        return mHumMax;
     }
 
     public void setHumMax(int humMax) {
-        this.humMax = humMax;
+        this.mHumMax = humMax;
     }
 
     public int getHumMaxTime() {
-        return humMaxTime;
+        return mHumMaxTime;
     }
 
     public void setHumMaxTime(int humMaxTime) {
-        this.humMaxTime = humMaxTime;
+        this.mHumMaxTime = humMaxTime;
     }
 
     public String getCondition() {
-        return condition;
+        return mCondition;
     }
 
     public void setCondition(String condition) {
-        this.condition = condition;
+        this.mCondition = condition;
     }
 
     public ArrayList<WeatherlyHourForecast> getHourlyForecasts() {
