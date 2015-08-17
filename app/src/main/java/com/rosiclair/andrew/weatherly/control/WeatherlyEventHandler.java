@@ -10,6 +10,7 @@ import com.github.dvdme.ForecastIOLib.ForecastIO;
 import com.rosiclair.andrew.weatherly.data.WeatherlyCity;
 import com.rosiclair.andrew.weatherly.data.WeatherlyDataModel;
 import com.rosiclair.andrew.weatherly.data.WeatherlyDayForecast;
+import com.rosiclair.andrew.weatherly.ui.MainActivity;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -20,12 +21,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class WeatherlyEventHandler {
 
-    private AppCompatActivity mActivity;
+    private MainActivity mActivity;
     private WeatherlyDataModel mDataModel;
 
     private ForecastIO mFIO;
 
-    public WeatherlyEventHandler(AppCompatActivity activity, WeatherlyDataModel dataModel){
+    public WeatherlyEventHandler(MainActivity activity, WeatherlyDataModel dataModel){
         mActivity = activity;
         mDataModel = dataModel;
     }
@@ -62,6 +63,9 @@ public class WeatherlyEventHandler {
         findPrecipChances(mFIO, todaysForecast);
         findWindSpeeds(mFIO, todaysForecast);
         findHumidities(mFIO, todaysForecast);
+
+        //Update the UI
+        mActivity.update();
     }
 
     private void findPrecipChances(ForecastIO FIO, WeatherlyDayForecast day){
