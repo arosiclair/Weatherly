@@ -224,7 +224,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Update views with new data
     public void update(){
+        WeatherlyCity currentLocation = mDataModel.getCurrentLocation();
+        WeatherlyDayForecast todaysForecast = currentLocation.getTodaysForecast();
+
+        Fragment currentFragment = mSectionsPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
+        View rootView = currentFragment.getView();
+
+        TextView currentTemp = (TextView) rootView.findViewById(R.id.current_temp);
+        currentTemp.setText(String.valueOf(currentLocation.getCurrentTemp()));
+        TextView currentConditions = (TextView) rootView.findViewById(R.id.current_conditions);
+        currentConditions.setText(String.valueOf(currentLocation.getCurrentCondition()));
+        TextView feelsLike = (TextView) rootView.findViewById(R.id.feels_like_temp);
+        feelsLike.setText(String.valueOf(currentLocation.getFeelsLike()) + "°");
+        TextView wind = (TextView) rootView.findViewById(R.id.wind_speed);
+        wind.setText(String.valueOf(currentLocation.getWind()) + " mph");
+        TextView humidity = (TextView) rootView.findViewById(R.id.humidity);
+        humidity.setText(String.valueOf(currentLocation.getHumidity()) + "%");
+        TextView visibility = (TextView) rootView.findViewById(R.id.visibility);
+        visibility.setText(String.valueOf(currentLocation.getVisibility()) + " mi.");
 
     }
 
