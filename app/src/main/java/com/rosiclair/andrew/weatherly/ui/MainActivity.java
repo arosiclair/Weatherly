@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ import com.rosiclair.andrew.weatherly.control.PlayServicesEventHandler;
 import com.rosiclair.andrew.weatherly.control.WeatherlyEventHandler;
 import com.rosiclair.andrew.weatherly.data.WeatherlyCity;
 import com.rosiclair.andrew.weatherly.data.WeatherlyDataModel;
+import com.rosiclair.andrew.weatherly.data.WeatherlyDayForecast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -114,6 +116,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+        SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
+
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -129,6 +133,23 @@ public class MainActivity extends AppCompatActivity {
         public int getCount() {
             // Show 1 page for now
             return 1;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            registeredFragments.remove(position);
+            super.destroyItem(container, position, object);
+        }
+
+        public Fragment getRegisteredFragment(int position) {
+            return registeredFragments.get(position);
         }
 
         @Override
