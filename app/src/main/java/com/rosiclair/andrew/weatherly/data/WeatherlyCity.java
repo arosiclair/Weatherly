@@ -3,7 +3,8 @@ package com.rosiclair.andrew.weatherly.data;
 import java.util.ArrayList;
 
 /**
- * Created by Andrew on 7/5/2015.
+ * Object containing all current weather information for a city as well as forecasts for the day
+ * and week
  */
 public class WeatherlyCity {
 
@@ -12,6 +13,7 @@ public class WeatherlyCity {
     private double latitude, longitude;
     private String units;
     private int currentTemp, feelsLike, wind, humidity, visibility;
+    private String currentCondition;
     private long lastUpdateTime;
     private WeatherlyDayForecast todaysForecast;
     private ArrayList<WeatherlyDayForecast> weeksForecast;
@@ -95,6 +97,10 @@ public class WeatherlyCity {
     public void setVisibility(int visibility) {
         this.visibility = visibility;
     }
+
+    public String getCurrentCondition() { return currentCondition; }
+
+    public void setCurrentCondition(String currentCondition) { this.currentCondition = currentCondition; }
 
     public long getLastUpdateTime() {
         return lastUpdateTime;
