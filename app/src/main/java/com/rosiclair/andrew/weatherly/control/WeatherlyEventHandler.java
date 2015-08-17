@@ -48,7 +48,7 @@ public class WeatherlyEventHandler {
 
         //Retrieve current conditions
         FIOCurrently currently = new FIOCurrently(mFIO);
-        currentLocation.setCurrentCondition(currently.get().summary());
+        currentLocation.setCurrentCondition(currently.get().summary().replaceAll("\"", ""));
         currentLocation.setCurrentTemp((int) (currently.get().temperature() + 0.5));
         currentLocation.setFeelsLike((int) (currently.get().apparentTemperature() + 0.5));
         currentLocation.setWind((int) (currently.get().windSpeed() + 0.5));
