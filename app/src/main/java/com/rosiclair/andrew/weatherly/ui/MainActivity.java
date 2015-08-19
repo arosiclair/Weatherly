@@ -1,7 +1,6 @@
 package com.rosiclair.andrew.weatherly.ui;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -11,7 +10,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +17,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.commonsware.cwac.pager.PageDescriptor;
+import com.commonsware.cwac.pager.SimplePageDescriptor;
+import com.commonsware.cwac.pager.v4.ArrayPagerAdapter;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.rosiclair.andrew.weatherly.R;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    SectionsPagerAdapter mSectionsPagerAdapter;
+    WeatherlyPagerAdapter mWeatherlyPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -56,14 +57,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Init the ArrayPagerAdapter with an empty ArrayList of PageDescriptors
+        ArrayList<PageDescriptor> pageDescriptors = new ArrayList<>();
+        mWeatherlyPagerAdapter = new WeatherlyPagerAdapter(getSupportFragmentManager(), pageDescriptors);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
+        // Get the ViewPager from the layout and attach the ArrayPagerAdapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(mWeatherlyPagerAdapter);
+
+        //Add the Current Location page
+        SimplePageDescriptor currentLocation = new SimplePageDescriptor("CURRENT_LOCATION_FRAGMENT", "CURRENT_LOCATION");
+        mWeatherlyPagerAdapter.add(currentLocation);
+        mViewPager.setCurrentItem(0);
 
         mDataModel = new WeatherlyDataModel();
         mEventHandler = new WeatherlyEventHandler(this, mDataModel);
@@ -109,84 +114,27 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public static class WeatherlyPagerAdapter extends ArrayPagerAdapter<CityFragment> {
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
+        public WeatherlyPagerAdapter(FragmentManager fragmentManager, ArrayList<PageDescriptor> descriptors) {
+            super(fragmentManager, descriptors);
         }
 
         @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a CityFragment (defined as a static inner class below).
-            return CityFragment.newInstance(position + 1);
+        protected CityFragment createFragment(PageDescriptor desc) {
+            return(CityFragment.newInstance());
         }
 
-        @Override
-        public int getCount() {
-            // Show 1 page for now
-            return 1;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            Fragment fragment = (Fragment) super.instantiateItem(container, position);
-            registeredFragments.put(position, fragment);
-            return fragment;
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            registeredFragments.remove(position);
-            super.destroyItem(container, position, object);
-        }
-
-        public Fragment getRegisteredFragment(int position) {
-            return registeredFragments.get(position);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            Locale l = Locale.getDefault();
-            switch (position) {
-                case 0:
-                    return getString(R.string.title_section1).toUpperCase(l);
-                case 1:
-                    return getString(R.string.title_section2).toUpperCase(l);
-                case 2:
-                    return getString(R.string.title_section3).toUpperCase(l);
-            }
-            return null;
-        }
     }
 
     /**
      * A placeholder fragment containing a simple view.
      */
     public static class CityFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static CityFragment newInstance(int sectionNumber) {
-            CityFragment fragment = new CityFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
+        // Returns a new instance of CityFragment
+        public static CityFragment newInstance() {
+            return new CityFragment();
         }
 
         public CityFragment() {
@@ -218,8 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.fragment_this_week_day, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_this_week_day, container, false);
         }
 
     }
@@ -229,8 +176,8 @@ public class MainActivity extends AppCompatActivity {
         WeatherlyCity currentLocation = mDataModel.getCurrentLocation();
         WeatherlyDayForecast todaysForecast = currentLocation.getTodaysForecast();
 
-        Fragment currentFragment = mSectionsPagerAdapter.getRegisteredFragment(mViewPager.getCurrentItem());
-        View rootView = currentFragment.getView();
+        Fragment fragment = mWeatherlyPagerAdapter.getExistingFragment(0);
+        View rootView = fragment.getView();
 
         TextView currentTemp = (TextView) rootView.findViewById(R.id.current_temp);
         currentTemp.setText(String.valueOf(currentLocation.getCurrentTemp()));
@@ -244,6 +191,11 @@ public class MainActivity extends AppCompatActivity {
         humidity.setText(String.valueOf(currentLocation.getHumidity()) + "%");
         TextView visibility = (TextView) rootView.findViewById(R.id.visibility);
         visibility.setText(String.valueOf(currentLocation.getVisibility()) + " mi.");
+
+        /*for(int i = 1; i < mWeatherlyPagerAdapter.getCount(); i++){
+
+        }*/
+
 
     }
 
