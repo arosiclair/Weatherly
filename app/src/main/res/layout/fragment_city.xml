@@ -115,6 +115,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_feels_like_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -163,6 +164,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_wind_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -214,6 +216,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_humidity_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -258,6 +261,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_visibility_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -350,6 +354,7 @@
                     android:paddingTop="16dp">
 
                     <ImageView
+                        android:id="@+id/image_today_rain_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center_vertical"
@@ -409,6 +414,7 @@
                     android:paddingTop="16dp">
 
                     <ImageView
+                        android:id="@+id/image_today_wind_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center_vertical"
@@ -468,6 +474,7 @@
                     android:paddingTop="16dp">
 
                     <ImageView
+                        android:id="@+id/image_today_humidity_icon"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center_vertical"
