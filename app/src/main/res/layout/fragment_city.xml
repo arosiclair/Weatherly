@@ -17,7 +17,7 @@
         android:paddingTop="@dimen/abc_action_bar_default_height_material">
 
 
-        <com.devspark.robototextview.widget.RobotoTextView
+        <TextView
             android:id="@+id/city_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,8 +31,7 @@
             android:text="City Name"
             android:textColor="@color/abc_primary_text_material_dark"
             android:textIsSelectable="false"
-            android:textSize="45sp"
-            app:typeface="roboto_regular" />
+            android:textSize="45sp"/>
 
         <!-- Root Vertical Layout For Card -->
         <LinearLayout
