@@ -52,7 +52,7 @@
                 android:paddingTop="16dp">
 
                 <!-- Right Now Label -->
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top|left"
@@ -64,7 +64,7 @@
 
                 <!-- Current Temp and Conditions -->
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:id="@+id/current_temp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                     android:textSize="56sp"
                     app:typeface="roboto_medium" />
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/current_temp"
@@ -86,7 +86,7 @@
                     app:typeface="roboto_medium" />
 
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:id="@+id/current_conditions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
                             android:textSize="16sp"
                             app:typeface="roboto_condensed_regular" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/feels_like_temp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
                         android:orientation="vertical"
                         android:paddingLeft="16dp">
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="4dp"
@@ -186,7 +186,7 @@
                             android:textSize="16sp"
                             app:typeface="roboto_condensed_regular" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/wind_speed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                         android:orientation="vertical"
                         android:paddingLeft="16dp">
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="4dp"
@@ -238,7 +238,7 @@
                             android:textSize="16sp"
                             app:typeface="roboto_condensed_regular" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/humidity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -274,7 +274,7 @@
                         android:orientation="vertical"
                         android:paddingLeft="16dp">
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingTop="4dp"
@@ -283,7 +283,7 @@
                             android:textSize="16sp"
                             app:typeface="roboto_condensed_regular" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/visibility"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -319,7 +319,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="top|left"
@@ -328,7 +328,7 @@
                     android:textSize="16sp"
                     app:typeface="roboto_medium" />
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:id="@+id/today_low_high"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -392,7 +392,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.devspark.robototextview.widget.RobotoTextView
+                    <TextView
                         android:id="@+id/today_rain_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -452,7 +452,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.devspark.robototextview.widget.RobotoTextView
+                    <TextView
                         android:id="@+id/today_wind_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -512,7 +512,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
-                    <com.devspark.robototextview.widget.RobotoTextView
+                    <TextView
                         android:id="@+id/today_humidity_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -544,7 +544,7 @@
             android:padding="16dp">
 
             <!-- Title -->
-            <com.devspark.robototextview.widget.RobotoTextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="This Week"
@@ -558,7 +558,7 @@
                 android:layout_gravity="right"
                 android:orientation="horizontal">
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -566,7 +566,7 @@
                     android:textSize="12sp"
                     app:typeface="roboto_condensed_regular" />
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -574,7 +574,7 @@
                     android:textSize="12sp"
                     app:typeface="roboto_condensed_regular" />
 
-                <com.devspark.robototextview.widget.RobotoTextView
+                <TextView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
