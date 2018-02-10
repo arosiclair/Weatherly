@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -31,7 +30,7 @@
             android:text="City Name"
             android:textColor="@color/abc_primary_text_material_dark"
             android:textIsSelectable="false"
-            android:textSize="45sp"/>
+            android:textSize="45sp" />
 
         <!-- Root Vertical Layout For Card -->
         <LinearLayout
@@ -59,8 +58,7 @@
                     android:text="Right Now"
                     android:textColor="@color/abc_secondary_text_material_light"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                    app:typeface="roboto_medium" />
+                    android:textSize="16sp" />
 
                 <!-- Current Temp and Conditions -->
 
@@ -72,8 +70,7 @@
                     android:text="72"
                     android:textColor="@color/abc_primary_text_material_light"
                     android:textIsSelectable="false"
-                    android:textSize="56sp"
-                    app:typeface="roboto_medium" />
+                    android:textSize="56sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,8 +79,7 @@
                     android:text="°"
                     android:textColor="@color/abc_primary_text_material_light"
                     android:textIsSelectable="false"
-                    android:textSize="56sp"
-                    app:typeface="roboto_medium" />
+                    android:textSize="56sp" />
 
 
                 <TextView
@@ -95,8 +91,7 @@
                     android:text="Clear"
                     android:textColor="@color/abc_secondary_text_material_light"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                    app:typeface="roboto_condensed_regular" />
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
@@ -129,7 +124,7 @@
                         android:paddingLeft="16dp">
 
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
@@ -137,8 +132,7 @@
                             android:singleLine="true"
                             android:text="Feels Like"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/feels_like_temp"
@@ -148,8 +142,7 @@
                             android:text="70°"
                             android:textColor="@color/abc_primary_text_material_light"
                             android:textSize="20sp"
-                            android:textStyle=""
-                            app:typeface="roboto_medium" />
+                            android:textStyle="" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -183,8 +176,7 @@
                             android:paddingTop="4dp"
                             android:text="Wind"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/wind_speed"
@@ -193,8 +185,7 @@
                             android:paddingBottom="4dp"
                             android:text="3 mph"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                            app:typeface="roboto_medium" />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -235,8 +226,7 @@
                             android:paddingTop="4dp"
                             android:text="Humidity"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/humidity"
@@ -245,8 +235,7 @@
                             android:paddingBottom="4dp"
                             android:text="58%"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                            app:typeface="roboto_medium" />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -280,8 +269,7 @@
                             android:paddingTop="4dp"
                             android:text="Visibility"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/visibility"
@@ -290,8 +278,7 @@
                             android:paddingBottom="4dp"
                             android:text="10 mi."
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                            app:typeface="roboto_medium" />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -325,8 +312,7 @@
                     android:layout_gravity="top|left"
                     android:text="Today"
                     android:textColor="@color/abc_secondary_text_material_light"
-                    android:textSize="16sp"
-                    app:typeface="roboto_medium" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/today_low_high"
@@ -335,8 +321,7 @@
                     android:layout_gravity="top|right"
                     android:text="58° - 77°"
                     android:textColor="@color/abc_primary_text_material_light"
-                    android:textSize="24sp"
-                    app:typeface="roboto_medium" />
+                    android:textSize="24sp" />
             </FrameLayout>
 
             <!-- Today's Weather Details -->
@@ -365,16 +350,15 @@
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical">
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
                             android:text="Rain?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/today_rain_answer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -382,8 +366,7 @@
                             android:paddingTop="4dp"
                             android:text="Probably"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                            app:typeface="roboto_medium" />
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -400,8 +383,7 @@
                         android:gravity="right"
                         android:text="70% chance\nby 12 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="16sp"
-                        app:typeface="roboto_medium" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -425,16 +407,15 @@
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical">
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
                             android:text="Wind?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/today_wind_answer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -442,8 +423,7 @@
                             android:paddingTop="4dp"
                             android:text="Gentle"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                            app:typeface="roboto_medium" />
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -460,8 +440,7 @@
                         android:gravity="right"
                         android:text="5 mph\nby 3 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="16sp"
-                        app:typeface="roboto_medium" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -485,16 +464,15 @@
                         android:layout_gravity="center_vertical"
                         android:orientation="vertical">
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="16dp"
                             android:text="Humidity?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                            app:typeface="roboto_condensed_regular" />
+                            android:textSize="16sp" />
 
-                        <com.devspark.robototextview.widget.RobotoTextView
+                        <TextView
                             android:id="@+id/today_humidity_answer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -502,8 +480,7 @@
                             android:paddingTop="4dp"
                             android:text="Moist"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                            app:typeface="roboto_medium" />
+                            android:textSize="20sp" />
 
                     </LinearLayout>
 
@@ -520,8 +497,7 @@
                         android:gravity="right"
                         android:text="80%\nby 12 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="16sp"
-                        app:typeface="roboto_medium" />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -549,8 +525,7 @@
                 android:layout_height="wrap_content"
                 android:text="This Week"
                 android:textColor="@color/abc_secondary_text_material_light"
-                android:textSize="16sp"
-                app:typeface="roboto_medium" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -563,24 +538,21 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Cond."
-                    android:textSize="12sp"
-                    app:typeface="roboto_condensed_regular" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Low"
-                    android:textSize="12sp"
-                    app:typeface="roboto_condensed_regular" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="High"
-                    android:textSize="12sp"
-                    app:typeface="roboto_condensed_regular" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
