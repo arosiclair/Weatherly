@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:weatherly="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/material_deep_teal_200"
@@ -92,8 +91,7 @@
                     android:text="Clear"
                     android:textColor="@color/abc_secondary_text_material_light"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                     />
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
@@ -111,6 +109,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_feels_like_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -124,16 +123,16 @@
                         android:orientation="vertical"
                         android:paddingLeft="16dp">
 
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:text="Feels Like"
                             android:ellipsize="end"
+                            android:paddingTop="4dp"
                             android:singleLine="true"
+                            android:text="Feels Like"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                             />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/feels_like_temp"
@@ -143,8 +142,7 @@
                             android:text="70°"
                             android:textColor="@color/abc_primary_text_material_light"
                             android:textSize="20sp"
-                            android:textStyle=""
-                             />
+                            android:textStyle="" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -158,6 +156,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_wind_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -186,8 +185,7 @@
                             android:paddingBottom="4dp"
                             android:text="3 mph"
                             android:textColor="@color/abc_primary_text_material_light"
-                            android:textSize="20sp"
-                             />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -208,6 +206,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_humidity_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -250,6 +249,7 @@
                     android:padding="16dp">
 
                     <ImageView
+                        android:id="@+id/image_visibility_icon"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_vertical"
@@ -269,8 +269,7 @@
                             android:paddingTop="4dp"
                             android:text="Visibility"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                             />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:id="@+id/visibility"
@@ -305,8 +304,7 @@
             <!-- Header Including The Low and High Temps -->
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -314,8 +312,7 @@
                     android:layout_gravity="top|left"
                     android:text="Today"
                     android:textColor="@color/abc_secondary_text_material_light"
-                    android:textSize="16sp"
-                     />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/today_low_high"
@@ -324,167 +321,186 @@
                     android:layout_gravity="top|right"
                     android:text="58° - 77°"
                     android:textColor="@color/abc_primary_text_material_light"
-                    android:textSize="24sp"
-                     />
+                    android:textSize="24sp" />
             </FrameLayout>
 
             <!-- Today's Weather Details -->
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <!-- Rain Forecast -->
+                <!-- Today's Rain Details -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp">
+
+                    <ImageView
+                        android:id="@+id/image_today_rain_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/darker_gray" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="8dp">
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:background="@android:color/darker_gray" />
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:paddingLeft="8dp"
+                            android:paddingLeft="16dp"
                             android:text="Rain?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                             />
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/today_rain_answer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="4dp"
+                            android:text="Probably"
+                            android:textColor="@color/abc_primary_text_material_light"
+                            android:textSize="20sp" />
+
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/today_rain_answer"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingTop="4dp"
-                        android:text="Probably"
-                        android:textColor="@color/abc_primary_text_material_light"
-                        android:textSize="20sp"
-                         />
+                        android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/today_rain_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="4dp"
-                        android:text="70%\nby 3 pm"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="right"
+                        android:text="70% chance\nby 12 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="16sp"
-                         />
+                        android:textSize="16sp" />
+
                 </LinearLayout>
 
-                <!-- Wind Forecast -->
+                <!-- Today's Wind Details -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp">
+
+                    <ImageView
+                        android:id="@+id/image_today_wind_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/darker_gray" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="8dp">
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:background="@android:color/darker_gray" />
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:paddingLeft="8dp"
+                            android:paddingLeft="16dp"
                             android:text="Wind?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                             />
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/today_wind_answer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="4dp"
+                            android:text="Gentle"
+                            android:textColor="@color/abc_primary_text_material_light"
+                            android:textSize="20sp" />
+
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/today_wind_answer"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingTop="4dp"
-                        android:text="Gentle"
-                        android:textColor="@color/abc_primary_text_material_light"
-                        android:textSize="20sp"
-                         />
+                        android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/today_wind_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="4dp"
-                        android:text="5 mph\nby 12 pm"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="right"
+                        android:text="5 mph\nby 3 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="16sp"
-                         />
+                        android:textSize="16sp" />
+
                 </LinearLayout>
 
-                <!-- Humidity Forecast -->
+                <!-- Today's Humidity Details -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp">
+
+                    <ImageView
+                        android:id="@+id/image_today_humidity_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/darker_gray" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="8dp">
-
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:background="@android:color/darker_gray" />
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:paddingLeft="8dp"
+                            android:paddingLeft="16dp"
                             android:text="Humidity?"
                             android:textColor="@color/abc_secondary_text_material_light"
-                            android:textSize="16sp"
-                             />
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/today_humidity_answer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="4dp"
+                            android:text="Moist"
+                            android:textColor="@color/abc_primary_text_material_light"
+                            android:textSize="20sp" />
+
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/today_humidity_answer"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingTop="4dp"
-                        android:text="Moist"
-                        android:textColor="@color/abc_primary_text_material_light"
-                        android:textSize="20sp"
-                         />
+                        android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/today_humidity_forecast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="4dp"
-                        android:text="80%\nby 3 pm"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="right"
+                        android:text="80%\nby 12 pm"
                         android:textColor="@color/abc_secondary_text_material_light"
-                        android:textSize="16sp"
-                         />
+                        android:textSize="16sp" />
+
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -496,7 +512,7 @@
         <!-- Week's Forecast Card -->
         <LinearLayout
             android:id="@+id/week_forecast_container"
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/background_card"
@@ -509,8 +525,7 @@
                 android:layout_height="wrap_content"
                 android:text="This Week"
                 android:textColor="@color/abc_secondary_text_material_light"
-                android:textSize="16sp"
-                 />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -523,24 +538,21 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Cond."
-                    android:textSize="12sp"
-                     />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Low"
-                    android:textSize="12sp"
-                     />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="High"
-                    android:textSize="12sp"
-                     />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
