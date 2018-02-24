@@ -32,6 +32,9 @@ public class WeatherlyEventHandler {
     }
 
     public void onLocationUpdate(Location lastKnown){
+        if (lastKnown == null)
+            return;
+
         double latitude = lastKnown.getLatitude();
         double longitude = lastKnown.getLongitude();
 

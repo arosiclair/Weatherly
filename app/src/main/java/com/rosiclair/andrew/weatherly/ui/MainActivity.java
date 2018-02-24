@@ -23,6 +23,7 @@ import com.commonsware.cwac.pager.v4.ArrayPagerAdapter;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.rosiclair.andrew.weatherly.R;
+import com.rosiclair.andrew.weatherly.control.PermissionsManager;
 import com.rosiclair.andrew.weatherly.control.PlayServicesEventHandler;
 import com.rosiclair.andrew.weatherly.control.WeatherlyEventHandler;
 import com.rosiclair.andrew.weatherly.data.WeatherlyCity;
@@ -251,5 +252,8 @@ public class MainActivity extends AppCompatActivity {
         return mPlayServicesEventHandler;
     }
 
-
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        PermissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }

@@ -1,5 +1,6 @@
 package com.rosiclair.andrew.weatherly.control;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -14,17 +15,21 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.rosiclair.andrew.weatherly.ui.MainActivity;
 
 /**
  * An event handler for the GoogleApiClient.
  */
-public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
+public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallbacks,
+                                                GoogleApiClient.OnConnectionFailedListener,
+                                                PermissionsManager.PermissionsRequestListener{
 
-    private GoogleApiClient mGoogleApiClient;
-    //The activity associated with the GoogleApiClient
     private MainActivity mActivity;
+    private GoogleApiClient mGoogleApiClient;
+    private FusedLocationProviderClient mFusedLocationClient;
 
     private Location mLastLocation;
     private String mLatitude, mLongitude;
@@ -38,6 +43,7 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     // Bool to track whether the app is already resolving an error
     public boolean mResolvingError = false;
     public static final String STATE_RESOLVING_ERROR = "resolving_error";
+
 
     public PlayServicesEventHandler(MainActivity activity, WeatherlyEventHandler eventHandler){
         mActivity = activity;
@@ -53,11 +59,30 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
         mGoogleApiClient = mActivity.getGoogleApiClient();
 
         //Request last known location
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        updateLocation();
+    }
 
-        //Pass the location to the WeatherlyEventHandler if successful
-        if(mLastLocation != null)
-            mWeatherlyEventHandler.onLocationUpdate(mLastLocation);
+    public void updateLocation() {
+        // If we don't have location request it and try again with the result
+        if (!PermissionsManager.checkPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION)) {
+            PermissionsManager.askPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION, PermissionsManager.LOCATION_REQUEST_CODE, this);
+            return;
+        }
+
+        if (mFusedLocationClient == null)
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(mActivity);
+
+            mFusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(mActivity, new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            // Got last known location. In some rare situations this can be null.
+                            if (location != null) {
+                                mLastLocation = location;
+                                mWeatherlyEventHandler.onLocationUpdate(mLastLocation);
+                            }
+                        }
+                    });
     }
 
     @Override
@@ -102,6 +127,16 @@ public class PlayServicesEventHandler implements GoogleApiClient.ConnectionCallb
     /* Called from ErrorDialogFragment when the dialog is dismissed. */
     public void onDialogDismissed() {
         mResolvingError = false;
+    }
+
+    @Override
+    public void onRequestResult(boolean granted) {
+        if (granted)
+            updateLocation();
+        else {
+            //TODO: use dialog manager to prompt reasoning
+            return;
+        }
     }
 
     /* A fragment to display an error dialog */
